@@ -1,0 +1,415 @@
+{
+	"info": {
+		"_postman_id": "84589471-605d-43c6-820e-07599252b8bb",
+		"name": "TechSolutions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43801966",
+		"_collection_link": "https://efren-4907564.postman.co/workspace/efren-'s-Workspace~10da0c18-f91b-4448-8c8e-fa1269048bb7/collection/43801966-84589471-605d-43c6-820e-07599252b8bb?action=share&source=collection_link&creator=43801966"
+	},
+	"item": [
+		{
+			"name": "Registrar un nuevo usuario (POST /api/register)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Juan Pérez\",\r\n  \"email\": \"juan.perez@example.com\",\r\n  \"password\": \"ContraseñaSegura123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Iniciar sesión (login) y obtener el token JWT (POST /api/login)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"juan.perez@example.com\",\r\n  \"password\": \"ContraseñaSegura123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un proyecto (POST /api/proyectos)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Proyecto Alpha\",\r\n  \"fecha_inicio\": \"2025-09-01\",\r\n  \"estado\": \"pendiente\",\r\n  \"responsable\": \"Carlos López\",\r\n  \"monto\": 15000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los proyectos (GET /api/proyectos)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un proyecto por ID (GET /api/proyectos/{id})",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un proyecto por ID (GET /api/proyectos/{id}) error inavalido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un proyecto existente (PUT/PATCH /api/proyectos/{id})",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODI2MzM4LCJleHAiOjE3NTY4Mjk5MzgsIm5iZiI6MTc1NjgyNjMzOCwianRpIjoiY0ZZRnlUR3pmWGk3OG5NUyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.405_LXMS-TWpp21N7l3SSS6LmUnJeBZqLMsHI4tdDZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Proyecto Alpha Renovado\",\r\n  \"fecha_inicio\": \"2025-09-15\",\r\n  \"estado\": \"en_progreso\",\r\n  \"responsable\": \"Carlos López\",\r\n  \"monto\": 18000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/9",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un proyecto que no existe (PUT/PATCH /api/proyectos/{id}) ID que no existe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Proyecto Alpha Renovado\",\r\n  \"fecha_inicio\": \"2025-09-15\",\r\n  \"estado\": \"en_progreso\",\r\n  \"responsable\": \"Carlos López\",\r\n  \"monto\": 18000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar un proyecto que tiene dato invalido o no existe (PUT/PATCH /api/proyectos/{id}) MONTO invalido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODIxMDIyLCJleHAiOjE3NTY4MjQ2MjIsIm5iZiI6MTc1NjgyMTAyMiwianRpIjoiZ1hZbnZLOUxMZ0R4VnJsYyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.UG2Pf0s__gnasqRrudGZkzdvtIwnctLmtHLf9_0ddPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Proyecto Alpha Error\",\r\n  \"fecha_inicio\": \"2025-09-15\",\r\n  \"estado\": \"en_progreso\",\r\n  \"responsable\": \"Carlos López\",\r\n  \"monto\": \"dieciocho mil\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un proyecto (DELETE /api/proyectos/{id})",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un proyecto con proyecto con ese ID no existe (DELETE /api/proyectos/{id})",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU2ODE3MzgyLCJleHAiOjE3NTY4MjA5ODIsIm5iZiI6MTc1NjgxNzM4MiwianRpIjoiTXNKenhCcUc0Q0Z2RHN3ZyIsInN1YiI6IjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.TFqyqC8cKrcgEQESfaudfr_TPAYA2gdRUO6S_0saCtk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/proyectos/8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"proyectos",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
